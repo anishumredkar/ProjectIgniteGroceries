@@ -53,14 +53,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate
     }
     
     var model: Inceptionv3!
+    var stuff = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         model = Inceptionv3()
+        
     }
     
-    
+    @IBAction func onGoButton(_ sender: Any)
+    {
+        performSegue(withIdentifier: "segue0", sender: self)
+    }
 
 }
+
+
 
 extension ViewController: UIImagePickerControllerDelegate
 {
@@ -103,11 +110,17 @@ extension ViewController: UIImagePickerControllerDelegate
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         imageView.image = newImage
         
-        guard let prediction = try? model.prediction(image: pixelBuffer!) else {
+        guard let prediction = try? model.prediction(image: pixelBuffer!)
+        else
+        {
             return
         }
         
-        classifier.text = "I think this is a \(prediction.classLabel)."
+        //classifier.text = "I think this is a \(prediction.classLabel)."
+        stuff.append(prediction.classLabel)
+        classifier.text = "I think this is \(stuff.joined(separator:", "))."
+        
+        
     }
 
     

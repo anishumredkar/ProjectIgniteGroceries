@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jlx-eY-Zrw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jlx-eY-Zrw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,11 +31,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kr5-PT-EsM">
-                                <rect key="frame" x="38" y="184" width="299" height="299"/>
+                                <rect key="frame" x="-6" y="140" width="387" height="387"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kr5-PT-EsM" secondAttribute="height" multiplier="1:1" id="nMP-KB-GU7"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZy-hJ-uZg">
+                                <rect key="frame" x="30" y="583" width="48" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="button2"/>
+                                <connections>
+                                    <segue destination="ZGy-9U-c6p" kind="show" identifier="segue0" id="3Of-EI-XQ6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -67,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="169.56521739130437"/>
+            <point key="canvasLocation" x="1886" y="16"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rTx-xT-aku">
@@ -75,17 +82,52 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jlx-eY-Zrw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m0I-yw-OYy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ye5-Wa-NeP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ho9-of-nvF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8L-Eb-uGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="171"/>
         </scene>
+        <!--Second View Controller-->
+        <scene sceneID="CO0-qd-hQ7">
+            <objects>
+                <viewController id="ZGy-9U-c6p" customClass="SecondViewController" customModule="CoreMLDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nr7-xQ-7xz"/>
+                        <viewControllerLayoutGuide type="bottom" id="5So-eC-3cr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UkQ-v8-9FI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jr5-xN-Bzz">
+                                <rect key="frame" x="64" y="480" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onGoButton:" destination="ZGy-9U-c6p" eventType="touchUpInside" id="Cbz-XD-WUy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xaM-Yp-Pxs"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="mySegue" id="KfM-Gs-caP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1vr-hf-qJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="-246"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KfM-Gs-caP"/>
+    </inferredMetricsTieBreakers>
 </document>
